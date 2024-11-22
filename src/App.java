@@ -450,7 +450,25 @@ public class App {
         anomalyLog.add(anomalyMessage);
     }
 
-    
+    private static void tripSummary() { // resumen viaje
+
+        System.out.println("\n¡El viaje al planeta " + selectedPlanet + " a llegado a su destino!\n");
+
+        System.out.println("Resumen del viaje:\n");
+
+        System.out.println("* Anomalías encontradas:");
+        System.out.println("---------------------------------------------------------");
+        for (String anomaly : anomalyLog) {
+            System.out.println(anomaly);
+        }
+        System.out.println("---------------------------------------------------------");
+
+        System.out.println("* Total de combustible perdido: " + totalFuelLost + " litros.");
+
+        System.out.println("* Total de oxígeno perdido: " + totalOxygenLost + " litros.");
+
+        System.out.println("* Total de tiempo de retraso: " + totalTimeDelay + " horas.\n");
+    }
 
 }
 
@@ -463,4 +481,4 @@ public class App {
 
 
 
-}
+
