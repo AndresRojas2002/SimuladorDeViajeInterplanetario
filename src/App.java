@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class App {
@@ -294,6 +297,34 @@ public class App {
         final double litersKm = 0.05;
         return distance * litersKm;
     }
+
+    private static Random random = new Random();
+    static List<String> anomalyLog = new ArrayList<>(); // listas para registrar las anomalias
+    private static int totalFuelLost = 0; // total combustible perdido
+    private static int totalOxygenLost = 0;// total de oxigeno perdido
+    private static int totalTimeDelay = 0; // total de tiempo retrasado
+    private static String[] anomalies = { "Meteoritos en la ruta", "Fallo en el sistema de navegación",
+            "Pérdida de comunicación temporal", "Desviación de trayectoria", "Problemas en el suministro de oxígeno" };// array
+                                                                                                                       // de
+                                                                                                                    // anomalias
+
+    private static void simulateJourney() {// simular viaje
+        int[] progress = new int[100];
+        initializeProgress(progress);
+        System.out.println("Iniciando el viaje...\n");
+        for (int i = 0; i < progress.length; i++) {
+            System.out.print("\rProgreso del viaje: " + progress[i] + " % ");
+            if (random.nextInt(100) < 3) {
+                handleAnomaly();
+            }
+            for (long j = 0; j < 300000000L; j++)
+                ;
+        }
+        tripSummary();
+    }
+
+    
+
 
 
 
