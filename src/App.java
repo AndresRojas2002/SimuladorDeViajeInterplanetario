@@ -81,7 +81,7 @@ public class App {
         enterContinue();
     }
 
-    private static void menu() { // Menú principal
+    private static void menuMain() { // Menú principal
 
         System.out.println("------ Menu Principal ------ \n");
         System.out.println("1. Selecciona un planeta");
