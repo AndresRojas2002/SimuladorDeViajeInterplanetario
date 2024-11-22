@@ -11,6 +11,28 @@ public class App {
 
     }
 
+    private static void dataTrip() {
+        System.out.println("* Planeta seleccionado: " + selectedPlanet);
+        System.out.println("* Nave seleccionada: " + selectedShip);
+        System.out.println("* Personas seleccionadas: " + passengers);
+
+        travelTime();
+
+        System.out.printf("* El tiempo estimado de viaje es de: %.1f horas\n", time);
+
+        double oxygenNeeded = calculateOxygen(time, passengers);
+        System.out.printf("* La cantidad de oxígeno necesario para el viaje es: %.1f litros\n",
+                oxygenNeeded);
+        double fuelNeeded = calculateFuel(distancePlanet);
+
+        System.out.printf("* La cantidad de combustible necesario para el viaje es: %.1f litros\n",
+                fuelNeeded);
+
+        System.out.println("\n ");
+        sc.nextLine();
+        enterContinue();
+    }
+
     private static void menu() { // Menú principal
 
         System.out.println("------ Menu Principal ------ \n");
