@@ -9,6 +9,54 @@ public class App {
 
         System.out.println("/n BIENVENIDO AL SIMULADOR DE VIAJE INTERPLANETARIO /n");
 
+        do {
+
+            menuMain();
+
+            option = sc.nextInt();
+            System.out.println("\n");
+            switch (option) {
+                case 1:
+                    planets();
+                    enterContinue();
+                    break;
+
+                case 2:
+                    spaceShip();
+                    enterContinue();
+                    sc.nextLine();
+                    break;
+
+                case 3:
+                    dataTrip();
+                    enterContinue();
+                    break;
+                    
+                case 4:
+                    if (selectedPlanet == null || selectedShip == null) {
+                        System.out.println(
+                                "Por favor, selecciona un planeta y una nave antes de iniciar la simulación del viaje.\n");
+                    } else {
+                        simulateJourney();
+                        System.out.println("Deseas iniciar otro simulador\n ");
+                        closeCase();
+                    }
+                    break;
+
+                case 5:
+                    System.out.println("Programa terminado \"Gracias por utilizar el simulador\" ");
+                    System.exit(0);
+                    break;
+
+                default:
+                    System.out.println("Opción no válida \n ");
+                    break;
+            }
+
+        } while (option != 5);
+
+        sc.close();
+
     }
 
     private static void dataTrip() {
@@ -328,7 +376,7 @@ public class App {
     private static String[] anomalies = { "Meteoritos en la ruta", "Fallo en el sistema de navegación",
             "Pérdida de comunicación temporal", "Desviación de trayectoria", "Problemas en el suministro de oxígeno" };// array
                                                                                                                        // de
-                                                                                                                    // anomalias
+                                                                                                                       // anomalias
 
     private static void simulateJourney() {// simular viaje
         int[] progress = new int[100];
@@ -493,14 +541,3 @@ public class App {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
