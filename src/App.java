@@ -2,16 +2,14 @@ import java.util.Scanner;
 
 public class App {
 
-
     public static void main(String[] args) throws Exception {
 
         System.out.println("/n BIENVENIDO AL SIMULADOR DE VIAJE INTERPLANETARIO /n");
-        
-
 
     }
-    private static void menu(){ // Menú principal
-        
+
+    private static void menu() { // Menú principal
+
         System.out.println("------ Menu Principal ------ \n");
         System.out.println("1. Selecciona un planeta");
         System.out.println("2. Selecciona una nave espacial");
@@ -30,7 +28,6 @@ public class App {
     static String[] planet = { "Mercurio", "Venus", "Marte", "Júpiter", "Saturno", "Urano", "Neptuno", "Luna" };
     static double[] distance = { 46, 38, 56, 630, 1.200, 2.500, 4.000, 356.400 }; // array de distacias
     static int option;
-
 
     private static void planets() { // planetas
 
@@ -173,12 +170,11 @@ public class App {
     static int[] people = { 100, 4, 7, 8 }; // array de personas
     static double[] speed = { 200.000, 40.000, 27.000, 28.000 }; // array de velocidad
 
-    
     static String selectedShip; // seleccion de nave
     static double speedShip; // velocidad de la nave
     static int passengers; // pasageros seleccionados
 
-    private static void spaceShip(){ // naves espaciales
+    private static void spaceShip() { // naves espaciales
 
         System.out.println("Lista de naves disponibles :");
         for (int i = 0; i < ships.length; i++) {
@@ -246,6 +242,35 @@ public class App {
         System.out.println("Número de pasajeros confirmados: " + passengers);
         System.out.println(" ");
 
+    }
+
+    static double time;
+
+    private static void travelTime() { // tiempo de viaje
+        time = distancePlanet / speedShip;
+
+    }
+
+    private static void closeCase() {
+        System.out.println("1. Continuar con el simulador ");
+        System.out.println("2. Salir del simulador");
+        System.out.println("-----------------------");
+        System.out.print("\nSeleccione una opción: \n ");
+        option = sc.nextInt();
+        if (option == 2) {
+            System.out.println("Simulación cancelada.");
+            System.exit(0);
+        } else if (option != 1) {
+            System.out.println("Opción no válida.");
+            closeCase();
+        }
+
+    }
+
+    private static void enterContinue() { // enter para continuar
+
+        System.out.println("Presiona 'Enter' para continuar...");
+        sc.nextLine();
 
     }
 
@@ -258,7 +283,5 @@ public class App {
             passengers = sc.nextInt();
         }
     }
-
-
 
 }
