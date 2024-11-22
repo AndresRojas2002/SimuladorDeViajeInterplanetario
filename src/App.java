@@ -4,6 +4,23 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class App {
+    static double time;
+
+    static String[] ships = { "SpaceX Starship", "NASA Orion", "SpaceX Dragon", "Lanzadera Espacial" };
+    static int[] people = { 100, 4, 7, 8 }; // array de personas
+    static double[] speed = { 200.000, 40.000, 27.000, 28.000 }; // array de velocidad
+
+    static String selectedShip; // seleccion de nave
+    static double speedShip; // velocidad de la nave
+    static int passengers; // pasageros seleccionados
+    static Scanner sc = new Scanner(System.in);
+
+    static double distancePlanet; // distancia del planeta
+    static String selectedPlanet; // seleccion de planeta
+
+    static String[] planet = { "Mercurio", "Venus", "Marte", "Júpiter", "Saturno", "Urano", "Neptuno", "Luna" };
+    static double[] distance = { 46, 38, 56, 630, 1.200, 2.500, 4.000, 356.400 }; // array de distacias
+    static int option;
 
     public static void main(String[] args) throws Exception {
 
@@ -29,9 +46,9 @@ public class App {
 
                 case 3:
                     dataTrip();
-                    enterContinue();
+
                     break;
-                    
+
                 case 4:
                     if (selectedPlanet == null || selectedShip == null) {
                         System.out.println(
@@ -92,15 +109,6 @@ public class App {
         System.out.println("----------------------------");
         System.out.print("\nPor favor, selecciona una opción del menú: ");
     }
-
-    static Scanner sc = new Scanner(System.in);
-
-    static double distancePlanet; // distancia del planeta
-    static String selectedPlanet; // seleccion de planeta
-
-    static String[] planet = { "Mercurio", "Venus", "Marte", "Júpiter", "Saturno", "Urano", "Neptuno", "Luna" };
-    static double[] distance = { 46, 38, 56, 630, 1.200, 2.500, 4.000, 356.400 }; // array de distacias
-    static int option;
 
     private static void planets() { // planetas
 
@@ -239,14 +247,6 @@ public class App {
 
     }
 
-    static String[] ships = { "SpaceX Starship", "NASA Orion", "SpaceX Dragon", "Lanzadera Espacial" };
-    static int[] people = { 100, 4, 7, 8 }; // array de personas
-    static double[] speed = { 200.000, 40.000, 27.000, 28.000 }; // array de velocidad
-
-    static String selectedShip; // seleccion de nave
-    static double speedShip; // velocidad de la nave
-    static int passengers; // pasageros seleccionados
-
     private static void spaceShip() { // naves espaciales
 
         System.out.println("Lista de naves disponibles :");
@@ -316,8 +316,6 @@ public class App {
         System.out.println(" ");
 
     }
-
-    static double time;
 
     private static void travelTime() { // tiempo de viaje
         time = distancePlanet / speedShip;
