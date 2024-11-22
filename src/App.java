@@ -24,7 +24,7 @@ public class App {
 
     public static void main(String[] args) throws Exception {
 
-        System.out.println("/n BIENVENIDO AL SIMULADOR DE VIAJE INTERPLANETARIO /n");
+        System.out.println("\n BIENVENIDO AL SIMULADOR DE VIAJE INTERPLANETARIO \n");
 
         do {
 
@@ -36,6 +36,7 @@ public class App {
                 case 1:
                     planets();
                     enterContinue();
+                    sc.nextLine();
                     break;
 
                 case 2:
@@ -127,7 +128,7 @@ public class App {
 
             case 1:
                 selectedPlanet = planet[0];
-                System.out.println("----------------------Planeta " + planet[0] + " --------------------------\n");
+                System.out.println("\n----------------------Planeta " + planet[0] + " --------------------------\n");
                 System.out.println("* Es el planeta más cercano al Sol y el más pequeño del sistema solar.");
                 System.out.println(
                         "* No tiene atmósfera significativa, lo que provoca grandes variaciones de temperatura.");
@@ -139,7 +140,7 @@ public class App {
                 break;
             case 2:
                 selectedPlanet = planet[1];
-                System.out.println("----------------------Planeta " + planet[1] + " --------------------------\n");
+                System.out.println("\n----------------------Planeta " + planet[1] + " --------------------------\n");
                 System.out.println("* Similar en tamaño y composición a la Tierra, pero con condiciones extremas.");
                 System.out.println("* Tiene una atmósfera densa compuesta principalmente de dióxido de carbono.");
                 System.out.println("* La presión atmosférica en la superficie es 92 veces la de la Tierra.");
@@ -151,7 +152,7 @@ public class App {
                 break;
             case 3:
                 selectedPlanet = planet[2];
-                System.out.println("----------------------Planeta " + planet[2] + " --------------------------\n");
+                System.out.println("\n----------------------Planeta " + planet[2] + " --------------------------\n");
                 System.out.println("* Tiene la mitad del tamaño de la Tierra");
                 System.out.println("* Es de color rojo \"Debido al hierro oxidado de su suelo\" ");
                 System.out.println("* La presión atmosférica es aproximadamente 1% al de la Tierra (610)");
@@ -164,7 +165,7 @@ public class App {
 
             case 4:
                 selectedPlanet = planet[3];
-                System.out.println("----------------------Planeta " + planet[3] + " --------------------------\n");
+                System.out.println("\n----------------------Planeta " + planet[3] + " --------------------------\n");
                 System.out.println("* Mayor planeta del sistema solar");
                 System.out.println(
                         "* Es un gigante gaseoso y no está claro si en el fondo tiene un núcleo central de material sólido");
@@ -181,12 +182,11 @@ public class App {
 
             case 5:
                 selectedPlanet = planet[4];
-                System.out.println("----------------------Planeta " + planet[4] + " --------------------------\n");
+                System.out.println("\n----------------------Planeta " + planet[4] + " --------------------------\n");
                 System.out.println("* Es el segundo planeta mas grande del sistema solar");
                 System.out.println("* Es de color amarillo claro debido a nubes de gas");
                 System.out.println("* Cuenta con un precioso grupo de 7 anillos separados por espacio entre ellos");
-                System.out
-                        .println("* La presión atmosférica promedio es 140 veces mayor que la de la Tierra (140.000)");
+                System.out.println("* La presión atmosférica promedio es 140 veces mayor que la de la Tierra (140.000)");
                 System.out.println("* La atmósfera  esta compuesta principalmente de hidrógeno y helio");
                 System.out.printf("\n* La distancia mínima desde la tierra es de %.3f millones de km\n", distance[4]);
                 System.out.println("--------------------------------------------------------------------------");
@@ -196,7 +196,7 @@ public class App {
 
             case 6:
                 selectedPlanet = planet[5];
-                System.out.println("----------------------Planeta " + planet[5] + " --------------------------\n");
+                System.out.println("\n----------------------Planeta " + planet[5] + " --------------------------\n");
                 System.out.println(
                         "* Tiene un eje de rotación extremadamente inclinado, lo que significa que gira de lado.");
                 System.out.println("* Es conocido por su color azul debido al metano en su atmósfera.");
@@ -209,7 +209,7 @@ public class App {
 
             case 7:
                 selectedPlanet = planet[6];
-                System.out.println("----------------------Planeta " + planet[6] + " --------------------------\n");
+                System.out.println("\n----------------------Planeta " + planet[6] + " --------------------------\n");
                 System.out.println("* Es el octavo planeta desde el Sol y uno de los gigantes gaseosos.");
                 System.out.println("* Su color azul es debido al metano en su atmósfera.");
                 System.out.println(
@@ -223,7 +223,7 @@ public class App {
 
             case 8:
                 selectedPlanet = planet[7];
-                System.out.println("Seleccionaste el satélite natural de la Tierra \n");
+                System.out.println("\nSeleccionaste el satélite natural de la Tierra \n");
                 System.out.println("------------------------- " + planet[7] + " --------------------------\n");
                 System.out.println("* Es de color gris claro \"Debido a su superficie rocosa y polvorienta\" ");
                 System.out.println("* La presión atmosférica promedio es 10^-7 (10 a la menos 7 )");
@@ -235,7 +235,7 @@ public class App {
                 break;
 
             default:
-                System.out.println("Selección incorrecta\n");
+                System.out.println("\nSelección incorrecta\n");
 
                 System.out.println("Por favor, digite otra opción\n ");
                 planets();
@@ -249,12 +249,12 @@ public class App {
 
     private static void spaceShip() { // naves espaciales
 
-        System.out.println("Lista de naves disponibles :");
+        System.out.println("Lista de naves disponibles :\n");
         for (int i = 0; i < ships.length; i++) {
             System.out.println((i + 1) + ". " + ships[i]);
 
         }
-        System.out.print("Selecciona la nave con la que deseas hacer el viaje:");
+        System.out.print("\nSelecciona la nave con la que deseas hacer el viaje: ");
         int seleccion = sc.nextInt();
         System.out.println(" ");
 
@@ -263,8 +263,8 @@ public class App {
             case 1:
                 selectedShip = ships[0];
                 maxPeople = people[0];
-                System.out.println(" Has seleccionado la nave /n");
-                System.out.println("----------------" + ships[0] + " ----------------");
+                System.out.println(" Has seleccionado la nave: \n");
+                System.out.println("----------------" + ships[0] + " ----------------\n");
                 System.out.println("* Cuenta con una capacidad maxima de " + people[0] + " personas ");
                 System.out.printf("* Velocidad maxima de la nave %.3f km/h\n", speed[0]);
                 speedShip = speed[0];
@@ -273,8 +273,8 @@ public class App {
             case 2:
                 selectedShip = ships[1];
                 maxPeople = people[1];
-                System.out.println(" Has seleccionado la nave /n");
-                System.out.println("----------------" + ships[1] + " ----------------");
+                System.out.println(" Has seleccionado la nave: \n");
+                System.out.println("----------------" + ships[1] + " ----------------\n");
                 System.out.println("* Cuenta con una capacidad maxima de " + people[1] + " personas ");
                 System.out.printf("* Velocidad maxima de la nave %.3f km/h\n", speed[1]);
                 speedShip = speed[1];
@@ -284,8 +284,8 @@ public class App {
             case 3:
                 selectedShip = ships[2];
                 maxPeople = people[2];
-                System.out.println(" Has seleccionado la nave /n");
-                System.out.println("----------------" + ships[2] + " ----------------");
+                System.out.println(" Has seleccionado la nave: \n");
+                System.out.println("----------------" + ships[2] + " ----------------\n");
                 System.out.println("* Cuenta con una capacidad maxima de " + people[2] + " personas ");
                 System.out.printf("* Velocidad maxima de la nave %.3f km/h\n", speed[2]);
                 speedShip = speed[2];
@@ -295,8 +295,8 @@ public class App {
             case 4:
                 selectedShip = ships[3];
                 maxPeople = people[3];
-                System.out.println(" Has seleccionado la nave /n");
-                System.out.println("----------------" + ships[3] + " ----------------");
+                System.out.println(" Has seleccionado la nave: \n");
+                System.out.println("----------------" + ships[3] + " ----------------\n");
                 System.out.println("* Cuenta con una capacidad maxima de " + people[3] + " personas ");
                 System.out.printf("* Velocidad maxima de la nave %.3f km/h\n", speed[3]);
                 speedShip = speed[3];
@@ -305,14 +305,14 @@ public class App {
                 break;
 
             default:
-                System.out.println("Selección incorrecta");
+                System.out.println("Selección incorrecta\n");
                 System.out.println("por favor seleccionea una opcion de la lista : ");
                 return;
 
         }
 
         numberPassengers(maxPeople);
-        System.out.println("Número de pasajeros confirmados: " + passengers);
+        System.out.println("\nNúmero de pasajeros confirmados: " + passengers);
         System.out.println(" ");
 
     }
@@ -329,7 +329,7 @@ public class App {
         System.out.print("\nSeleccione una opción: \n ");
         option = sc.nextInt();
         if (option == 2) {
-            System.out.println("Simulación cancelada.");
+            System.out.println("Simulación terminada.");
             System.exit(0);
         } else if (option != 1) {
             System.out.println("Opción no válida.");
