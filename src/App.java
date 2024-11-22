@@ -169,6 +169,96 @@ public class App {
 
     }
 
+    static String[] ships = { "SpaceX Starship", "NASA Orion", "SpaceX Dragon", "Lanzadera Espacial" };
+    static int[] people = { 100, 4, 7, 8 }; // array de personas
+    static double[] speed = { 200.000, 40.000, 27.000, 28.000 }; // array de velocidad
+
+    
+    static String selectedShip; // seleccion de nave
+    static double speedShip; // velocidad de la nave
+    static int passengers; // pasageros seleccionados
+
+    private static void spaceShip(){ // naves espaciales
+
+        System.out.println("Lista de naves disponibles :");
+        for (int i = 0; i < ships.length; i++) {
+            System.out.println((i + 1) + ". " + ships[i]);
+
+        }
+        System.out.print("Selecciona la nave con la que deseas hacer el viaje:");
+        int seleccion = sc.nextInt();
+        System.out.println(" ");
+
+        int maxPeople;
+        switch (seleccion) {
+            case 1:
+                selectedShip = ships[0];
+                maxPeople = people[0];
+                System.out.println(" Has seleccionado la nave /n");
+                System.out.println("----------------" + ships[0] + " ----------------");
+                System.out.println("* Cuenta con una capacidad maxima de " + people[0] + " personas ");
+                System.out.printf("* Velocidad maxima de la nave %.3f km/h\n", speed[0]);
+                speedShip = speed[0];
+                System.out.println(" ");
+                break;
+            case 2:
+                selectedShip = ships[1];
+                maxPeople = people[1];
+                System.out.println(" Has seleccionado la nave /n");
+                System.out.println("----------------" + ships[1] + " ----------------");
+                System.out.println("* Cuenta con una capacidad maxima de " + people[1] + " personas ");
+                System.out.printf("* Velocidad maxima de la nave %.3f km/h\n", speed[1]);
+                speedShip = speed[1];
+                System.out.println(" ");
+
+                break;
+            case 3:
+                selectedShip = ships[2];
+                maxPeople = people[2];
+                System.out.println(" Has seleccionado la nave /n");
+                System.out.println("----------------" + ships[2] + " ----------------");
+                System.out.println("* Cuenta con una capacidad maxima de " + people[2] + " personas ");
+                System.out.printf("* Velocidad maxima de la nave %.3f km/h\n", speed[2]);
+                speedShip = speed[2];
+                System.out.println(" ");
+
+                break;
+            case 4:
+                selectedShip = ships[3];
+                maxPeople = people[3];
+                System.out.println(" Has seleccionado la nave /n");
+                System.out.println("----------------" + ships[3] + " ----------------");
+                System.out.println("* Cuenta con una capacidad maxima de " + people[3] + " personas ");
+                System.out.printf("* Velocidad maxima de la nave %.3f km/h\n", speed[3]);
+                speedShip = speed[3];
+                System.out.println(" ");
+
+                break;
+
+            default:
+                System.out.println("Selección incorrecta");
+                System.out.println("por favor seleccionea una opcion de la lista : ");
+                return;
+
+        }
+
+        numberPassengers(maxPeople);
+        System.out.println("Número de pasajeros confirmados: " + passengers);
+        System.out.println(" ");
+
+
+    }
+
+    private static void numberPassengers(int maxPeople) { // numero de pasageros
+        System.out.print("Por favor indique la cantidad de pasageros (maximo " + maxPeople + " personas ): ");
+        passengers = sc.nextInt();
+
+        while (passengers > maxPeople || passengers <= 0) {
+            System.out.print("Número de pasajeros inválido. Por favor ingrese un número entre 1 y " + maxPeople + ": ");
+            passengers = sc.nextInt();
+        }
+    }
+
 
 
 }
