@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class App {
@@ -295,10 +298,187 @@ public class App {
         return distance * litersKm;
     }
 
+    private static Random random = new Random();
+    static List<String> anomalyLog = new ArrayList<>(); // listas para registrar las anomalias
+    private static int totalFuelLost = 0; // total combustible perdido
+    private static int totalOxygenLost = 0;// total de oxigeno perdido
+    private static int totalTimeDelay = 0; // total de tiempo retrasado
+    private static String[] anomalies = { "Meteoritos en la ruta", "Fallo en el sistema de navegación",
+            "Pérdida de comunicación temporal", "Desviación de trayectoria", "Problemas en el suministro de oxígeno" };// array
+                                                                                                                       // de
+                                                                                                                    // anomalias
 
+    private static void simulateJourney() {// simular viaje
+        int[] progress = new int[100];
+        initializeProgress(progress);
+        System.out.println("Iniciando el viaje...\n");
+        for (int i = 0; i < progress.length; i++) {
+            System.out.print("\rProgreso del viaje: " + progress[i] + " % ");
+            if (random.nextInt(100) < 3) {
+                handleAnomaly();
+            }
+            for (long j = 0; j < 300000000L; j++)
+                ;
+        }
+        tripSummary();
+    }
 
+    private static void initializeProgress(int[] progress) {// inicializar progreso
 
+        for (int i = 0; i < 100; i++) {
+            progress[i] = i + 1;
+        }
+    }
 
+    private static void handleAnomaly() {// manejar anomalias
+        int anomalyIndex = random.nextInt(anomalies.length);
+        String anomalyMessage = anomalies[anomalyIndex] + "!";
+        System.out.print(anomalyMessage);
+        System.out.println("\nSeleccione la acción para resolver la anomalía:\n");
+        switch (anomalyIndex) {
+            case 0:
+                System.out.println("1. Realizar maniobra evasiva (consume más combustible)");
+                System.out.println("2. Continuar el viaje con la anomalía");
+                break;
+            case 1:
+                System.out.println("1. Reparar el sistema de navegación");
+                System.out.println("2. Continuar el viaje con la anomalía");
+                break;
+            case 2:
+                System.out.println("1. Restablecer la comunicación manualmente");
+                System.out.println("2. Continuar el viaje con la anomalía");
+                break;
+            case 3:
+                System.out.println("1. Corregir la trayectoria manualmente");
+                System.out.println("2. Continuar el viaje con la anomalía");
+                break;
+            case 4:
+                System.out.println("1. Reparar el sistema de suministro de oxígeno");
+                System.out.println("2. Continuar el viaje con la anomalía");
+                break;
+            default:
+                System.out.println("Opción no válida.");
+                break;
+        }
+        int action = sc.nextInt();
+        switch (anomalyIndex) {
+            case 0:
+                if (action == 1) {
+                    int fuelLost = random.nextInt(20) + 10;
+                    totalFuelLost += fuelLost;
+                    System.out
+                            .println("Maniobra evasiva exitosa. Combustible extra consumido: " + fuelLost
+                                    + " litros.\n");
+                } else if (action == 2) {
+                    int outcome = random.nextInt(2);
+                    if (outcome == 0) {
+                        System.out.println("Menores daños a la nave.\n");
+                    } else {
+                        System.out.println("Daño evitado por suerte!\n");
+                    }
+                } else {
+                    System.out.println("Acción no válida. La anomalía no se pudo resolver correctamente.\n");
+                }
+                break;
+            case 1:
+                if (action == 1) {
+                    int delay = random.nextInt(2) + 1;
+                    totalTimeDelay += delay;
+                    System.out.println("Acción ejecutada: Reparar el sistema de navegación. Retraso de llegada: "
+                            + delay + " horas.\n");
+                } else if (action == 2) {
+                    int delay = random.nextInt(2) + 1;
+                    totalTimeDelay += delay;
+                    System.out
+                            .println("Continuar el viaje con la anomalía: Retraso de llegada: " + delay + " horas.\n");
+                } else {
+                    System.out.println("Acción no válida. La anomalía no se pudo resolver correctamente.\n");
+                }
+                break;
+            case 2:
+                if (action == 1) {
+                    int delay = 30;
+                    totalTimeDelay += delay / 60;
+                    System.out.println("Acción ejecutada: Restablecer la comunicación manualmente. Retraso de llegada: "
+                            + delay + " minutos.\n");
+                } else if (action == 2) {
+                    int oxygenLost = random.nextInt(10) + 5;
+                    totalOxygenLost += oxygenLost;
+                    System.out.println(
+                            "Continuar el viaje con la anomalía: Oxígeno extra consumido: " + oxygenLost
+                                    + " litros.\n");
+                } else {
+                    System.out.println("Acción no válida. La anomalía no se pudo resolver correctamente.\n");
+                }
+                break;
+            case 3:
+                if (action == 1) {
+                    int fuelLost = random.nextInt(20) + 10;
+                    totalFuelLost += fuelLost;
+                    System.out.println(
+                            "Acción ejecutada: Corregir la trayectoria manualmente. Combustible extra consumido: "
+                                    + fuelLost + " litros.\n");
+                } else if (action == 2) {
+                    int delay = 1;
+                    totalTimeDelay += delay;
+                    System.out.println("Continuar el viaje con la anomalía: Retraso de llegada: " + delay + " hora.\n");
+                } else {
+                    System.out.println("Acción no válida. La anomalía no se pudo resolver correctamente.\n");
+                }
+                break;
+            case 4:
+                if (action == 1) {
+                    int oxygenLost = random.nextInt(30) + 20;
+                    totalOxygenLost += oxygenLost;
+                    System.out.println(
+                            "Acción ejecutada: Reparar el sistema de suministro de oxígeno. Oxígeno extra consumido: "
+                                    + oxygenLost + " litros.\n");
+                } else if (action == 2) {
+                    int oxygenLost = random.nextInt(20) + 10;
+                    totalOxygenLost += oxygenLost;
+                    System.out.println(
+                            "Continuar el viaje con la anomalía: Oxígeno extra consumido: " + oxygenLost
+                                    + " litros.\n");
+                } else {
+                    System.out.println("Acción no válida. La anomalía no se pudo resolver correctamente.\n");
+                }
+                break;
+            default:
+                System.out.println("Anomalía no reconocida. Continuando viaje con posibles riesgos.\n");
+                break;
+        }
+        anomalyLog.add(anomalyMessage);
+    }
 
+    private static void tripSummary() { // resumen viaje
+
+        System.out.println("\n¡El viaje al planeta " + selectedPlanet + " a llegado a su destino!\n");
+
+        System.out.println("Resumen del viaje:\n");
+
+        System.out.println("* Anomalías encontradas:");
+        System.out.println("---------------------------------------------------------");
+        for (String anomaly : anomalyLog) {
+            System.out.println(anomaly);
+        }
+        System.out.println("---------------------------------------------------------");
+
+        System.out.println("* Total de combustible perdido: " + totalFuelLost + " litros.");
+
+        System.out.println("* Total de oxígeno perdido: " + totalOxygenLost + " litros.");
+
+        System.out.println("* Total de tiempo de retraso: " + totalTimeDelay + " horas.\n");
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
