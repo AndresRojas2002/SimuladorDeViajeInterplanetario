@@ -284,4 +284,21 @@ public class App {
         }
     }
 
+    private static double calculateOxygen(double time, int passengers) { // cacular oxigeno
+        final double oxygenHour = 1.0;
+        return time * passengers * oxygenHour;
+
+    }
+
+    private static double calculateFuel(double distance) { // calcular combustible
+        final double litersKm = 0.05;
+        return distance * litersKm;
+    }
+
+
+
+
+
+
+
 }
