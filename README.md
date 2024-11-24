@@ -68,15 +68,25 @@ Durante el viaje, pueden surgir diferentes tipos de anomalías que requerirán t
 - Java JDK 8 o superior
 - Terminal o consola para ejecutar el programa
 
+## Herramientas 
+
+- Visual Studio Code, Eclipse, Apache NetBeans o cualquier IDE compatiple con Java
+
 ## Cómo Ejecutar
 
-```bash
-javac App.java
-java App
-```
+1. Abre tu IDE y carga el proyecto clonado.
 
-## Autor
 
-Luis Andres Rojas Acevedo
-Maria Angela Bermeo Tovar
+2. Asegúrate de que todas las dependencias necesarias estén configuradas correctamente.
+
+
+3. Busca el archivo principal llamado SimuladorMain.java (o el nombre del archivo principal del proyecto).
+
+
+4. Haz clic derecho sobre el archivo y selecciona Run (Ejecutar).
+
+## Autores
+
+- Luis Andres Rojas Acevedo
+- Maria Angela Bermeo Tovar
 
