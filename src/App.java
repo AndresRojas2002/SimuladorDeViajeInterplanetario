@@ -8,7 +8,7 @@ public class App {
 
     static String[] ships = { "SpaceX Starship", "NASA Orion", "SpaceX Dragon", "Lanzadera Espacial" };
     static int[] people = { 100, 4, 7, 8 }; // array de personas
-    static double[] speed = { 200.000, 40.000, 27.000, 28.000 }; // array de velocidad
+    static double[] speed = { 200000, 40000, 27000, 28000 }; // array de velocidad
 
     static String selectedShip; // seleccion de nave
     static double speedShip; // velocidad de la nave
@@ -19,7 +19,7 @@ public class App {
     static String selectedPlanet; // seleccion de planeta
 
     static String[] planet = { "Mercurio", "Venus", "Marte", "Júpiter", "Saturno", "Urano", "Neptuno", "Luna" };
-    static double[] distance = { 46, 38, 56, 630, 1.200, 2.500, 4.000, 356.400 }; // array de distacias
+    static double[] distance = { 46, 38, 56, 630, 1200, 2500, 4000, 356400 }; // array de distacias
     static int option;
 
     public static void main(String[] args) throws Exception {
@@ -56,7 +56,7 @@ public class App {
                                 "Por favor, selecciona un planeta y una nave antes de iniciar la simulación del viaje.\n");
                     } else {
                         simulateJourney();
-                        System.out.println("Deseas iniciar otro simulador\n ");
+                        tripSummary();
                         closeCase();
                     }
                     break;
@@ -78,9 +78,9 @@ public class App {
     }
 
     private static void dataTrip() {
-        System.out.println("* Planeta seleccionado: " + selectedPlanet);
+        System.out.println("* Planeta elegido: " + selectedPlanet);
         System.out.println("* Nave seleccionada: " + selectedShip);
-        System.out.println("* Personas seleccionadas: " + passengers);
+        System.out.println("* Cantidad de pasajeros: " + passengers);
 
         travelTime();
 
@@ -101,12 +101,12 @@ public class App {
 
     private static void menuMain() { // Menú principal
 
-        System.out.println("------ Menu Principal ------ \n");
-        System.out.println("1. Selecciona un planeta");
+        System.out.println("\n------ Menu Principal ------ \n");
+        System.out.println("1. Elige un planeta");
         System.out.println("2. Selecciona una nave espacial");
-        System.out.println("3. Datos a tener en cuenta del viaje ");
+        System.out.println("3. Ver detalles del viaje ");
         System.out.println("4. Iniciar simulación de viaje  ");
-        System.out.println("5. Salir");
+        System.out.println("5. Salir del simulador");
         System.out.println("----------------------------");
         System.out.print("\nPor favor, selecciona una opción del menú: ");
     }
@@ -122,8 +122,7 @@ public class App {
         System.out.print("Elige una opción: ");
         option = sc.nextInt();
 
-        sc.nextLine();
-
+     
         switch (option) {
 
             case 1:
@@ -243,9 +242,7 @@ public class App {
 
         }
 
-        System.out.println(" ");
-
-    }
+    } 
 
     private static void spaceShip() { // naves espaciales
 
@@ -323,10 +320,7 @@ public class App {
     }
 
     private static void closeCase() {
-        System.out.println("1. Continuar con el simulador ");
-        System.out.println("2. Salir del simulador");
-        System.out.println("-----------------------");
-        System.out.print("\nSeleccione una opción: \n ");
+        System.out.println("Presiona '1' para nueva simulación ó '2' para terminar ");
         option = sc.nextInt();
         if (option == 2) {
             System.out.println("Simulación terminada.");
@@ -340,7 +334,7 @@ public class App {
 
     private static void enterContinue() { // enter para continuar
 
-        System.out.println("Presiona 'Enter' para continuar...");
+        System.out.print("Presiona 'Enter' para continuar...");
         sc.nextLine();
 
     }
@@ -377,18 +371,23 @@ public class App {
                                                                                                                        // anomalias
 
     private static void simulateJourney() {// simular viaje
+
         int[] progress = new int[100];
         initializeProgress(progress);
-        System.out.println("Iniciando el viaje...\n");
+        System.out.println("Iniciando simulacion de viaje...\n");
         for (int i = 0; i < progress.length; i++) {
             System.out.print("\rProgreso del viaje: " + progress[i] + " % ");
             if (random.nextInt(100) < 3) {
                 handleAnomaly();
+            }{
+                for (long j = 0; j < 400000000L; j++);
             }
-            for (long j = 0; j < 300000000L; j++)
-                ;
+            
+            
         }
-        tripSummary();
+        System.out.println("\nEl viaje al planta " + selectedPlanet+ " ha llegado a su destino!! \n"  );
+        
+        
     }
 
     private static void initializeProgress(int[] progress) {// inicializar progreso
@@ -403,6 +402,8 @@ public class App {
         String anomalyMessage = anomalies[anomalyIndex] + "!";
         System.out.print(anomalyMessage);
         System.out.println("\nSeleccione la acción para resolver la anomalía:\n");
+        System.out.println(" ");
+        
         switch (anomalyIndex) {
             case 0:
                 System.out.println("1. Realizar maniobra evasiva (consume más combustible)");
@@ -429,6 +430,7 @@ public class App {
                 break;
         }
         int action = sc.nextInt();
+        System.out.println(" ");
         switch (anomalyIndex) {
             case 0:
                 if (action == 1) {
@@ -516,13 +518,13 @@ public class App {
                 break;
         }
         anomalyLog.add(anomalyMessage);
+        
     }
 
     private static void tripSummary() { // resumen viaje
+        
 
-        System.out.println("\n¡El viaje al planeta " + selectedPlanet + " a llegado a su destino!\n");
-
-        System.out.println("Resumen del viaje:\n");
+        System.out.println("\nResumen del viaje:\n");
 
         System.out.println("* Anomalías encontradas:");
         System.out.println("---------------------------------------------------------");
