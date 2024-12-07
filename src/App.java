@@ -1,3 +1,6 @@
+
+// PARTICIPANTES :  Luis Andres Rojas Acevedo, Maria Angela Bermeo Tovar
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
